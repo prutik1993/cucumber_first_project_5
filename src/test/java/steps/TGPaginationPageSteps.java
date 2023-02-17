@@ -149,9 +149,4 @@ public class TGPaginationPageSteps {
             Assert.assertEquals(mexicoCityContent.asList().get(i),techGlobalPaginationPage.citiesContent.get(i).getText());
         }
     }
-
-
-
-
-
 }
