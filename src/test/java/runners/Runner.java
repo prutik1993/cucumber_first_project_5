@@ -11,11 +11,7 @@ import org.junit.runner.RunWith;
         tags = "",
         dryRun = false,
         monochrome = false,
-        plugin = {"html:target/cucumber-reports",
-                "json:target/cucumber-reports/Cucumber.json",
-                "pretty"
-        }
-)
-public class Runner {
+        plugin = "html:target/cucumber-reports"
 
-}
+)
+public class Runner {}
