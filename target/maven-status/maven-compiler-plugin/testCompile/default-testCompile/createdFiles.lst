@@ -1,4 +1,3 @@
-utils/WindowHandler.class
 utils/ConfigReader.class
 steps/TGPaginationPageSteps.class
 runners/Runner.class

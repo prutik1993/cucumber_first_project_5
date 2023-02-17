@@ -13,7 +13,6 @@ import pages.TechGlobalBasePage;
 import pages.TechGlobalFrontendTestingHomePage;
 import pages.TechGlobalPaginationPage;
 import utils.Driver;
-import utils.WindowHandler;
 
 public class TGPaginationPageSteps {
 
@@ -29,7 +28,6 @@ public class TGPaginationPageSteps {
         techGlobalPaginationPage = new TechGlobalPaginationPage();
         techGlobalBasePage = new TechGlobalBasePage();
     }
-
     @Given("user is on {string}")
     public void user_is_on(String url) {
        driver.get(url);
@@ -47,7 +45,6 @@ public class TGPaginationPageSteps {
 
     @Then("user should be navigated to {string}")
     public void user_should_be_navigated_to(String url) {
-        WindowHandler.switchToChildWindow();
         Assert.assertEquals(url, driver.getCurrentUrl());
     }
 
