@@ -1,0 +1,78 @@
+package steps;
+
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import org.junit.Assert;
+import cucumber.api.java.Before;
+import org.openqa.selenium.NotFoundException;
+import org.openqa.selenium.WebDriver;
+import pages.TechGlobalBasePage;
+import pages.TechGlobalFrontendTestingHomePage;
+import pages.TechGlobalPaginationPage;
+import utils.Driver;
+
+public class TGPaginationPageSteps {
+
+    WebDriver driver;
+    TechGlobalFrontendTestingHomePage techGlobalFrontendTestingHomePage;
+    TechGlobalPaginationPage techGlobalPaginationPage;
+    TechGlobalBasePage techGlobalBasePage;
+
+    @Before
+    public void setup(){
+        driver = Driver.getDriver();
+        techGlobalFrontendTestingHomePage = new TechGlobalFrontendTestingHomePage();
+        techGlobalPaginationPage = new TechGlobalPaginationPage();
+        techGlobalBasePage = new TechGlobalBasePage();
+    }
+
+    @Given("user is on {string}")
+    public void user_is_on(String url) {
+        driver.get(url);
+    }
+
+    @When("user moves to Practices header dropdown")
+    public void user_moves_to_Practices_header_dropdown() {
+        techGlobalBasePage.headerDropdown.click();
+    }
+
+    @And("user clicks on Frontend Testing header dropdown option")
+    public void user_clicks_on_Frontend_Testing_header_dropdown_option() {
+        techGlobalBasePage.headerDropdownOptions.get(0).click();
+    }
+
+    @Then("user should be navigated to {string}")
+    public void user_should_be_navigated_to(String url) {
+        Assert.assertEquals(url, driver.getCurrentUrl());
+    }
+
+    @And("user clicks on {string} card")
+    public void user_clicks_on_card(String cardName) {
+        techGlobalFrontendTestingHomePage.clickOnCard(cardName);
+
+    }
+
+    @And("user should see {string} heading")
+    public void user_should_see_heading(String heading) {
+
+        switch (heading){
+            case "Pagination":
+                Assert.assertEquals(heading, techGlobalPaginationPage.headingH1.getText());
+                break;
+            case "World City Populations 2022":
+                Assert.assertEquals(heading, techGlobalPaginationPage.headingH2.getText());
+                break;
+            default:
+                throw  new NotFoundException("This is invalid heading text");
+        }
+    }
+
+    @And("user should see {string} paragraph")
+    public void user_should_see_paragraph(String paragraph) {
+       Assert.assertEquals(paragraph,techGlobalPaginationPage.paragraph.getText());
+    }
+
+
+}
