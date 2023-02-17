@@ -5,6 +5,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utils.Driver;
 
+import java.util.List;
+
 public class TechGlobalPaginationPage extends TechGlobalBasePage{
 
     public TechGlobalPaginationPage(){
@@ -18,6 +20,25 @@ public class TechGlobalPaginationPage extends TechGlobalBasePage{
 
     @FindBy(id = "content")
     public WebElement paragraph;
+
+    @FindBy(id = "previous")
+    public WebElement previousButton;
+
+    @FindBy(id = "next")
+    public WebElement nextButton;
+
+    @FindBy(css = "div[class*= pagBodyData]>p")
+    public List<WebElement> citiesContent;
+
+    @FindBy(className = "city_image")
+    public WebElement image;
+
+
+
+
+
+
+
 
 
 }

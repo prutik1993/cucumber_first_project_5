@@ -9,10 +9,13 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "steps",
         tags = "",
-        dryRun = true,
-        monochrome = false
-
+        dryRun = false,
+        monochrome = false,
+        plugin = {"html:target/cucumber-reports",
+                "json:target/cucumber-reports/Cucumber.json",
+                "pretty"
+        }
 )
-
 public class Runner {
+
 }
