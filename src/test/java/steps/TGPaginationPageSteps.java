@@ -112,10 +112,10 @@ public class TGPaginationPageSteps {
     }
 
     @And("user should see city with info below and an image")
-    public void user_should_see_city_with_info_below_and_an_image(DataTable cityContent) {
+    public void userShouldSeeCityWithInfoBelowAndAnImage(DataTable info) {
         Assert.assertTrue(techGlobalPaginationPage.image.isDisplayed());
-        for (int i = 0; i < techGlobalPaginationPage.citiesContent.size(); i++) {
-            Assert.assertEquals(cityContent.asList().get(i),techGlobalPaginationPage.citiesContent.get(i).getText());
+        for (int i = 0; i < info.asList().size(); i++){
+            Assert.assertEquals(techGlobalPaginationPage.citiesContent.get(i).getText(), info.asList().get(i));
         }
         techGlobalPaginationPage.nextButton.click();
     }
