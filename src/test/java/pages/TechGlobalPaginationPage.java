@@ -33,12 +33,4 @@ public class TechGlobalPaginationPage extends TechGlobalBasePage{
     @FindBy(className = ".city_image")
     public WebElement image;
 
-
-
-
-
-
-
-
-
 }
